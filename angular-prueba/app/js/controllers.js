@@ -10,7 +10,7 @@ angular.module('myApp.controllers', [])
           function (response) {
             // console.log(response);
             var moviesArray = response.Search;
-            console.log(moviesArray)
+
             $scope.movies = moviesArray;
             var total = Math.ceil(parseInt(response.totalResults) / 10);
             
