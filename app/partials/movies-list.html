@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                <h5 class="modal-title">Buscar por:</h5>
+                <div class="col">
+                    <form>
+                        <div class="form-row">
+                          <div class="col">
+                            <label for="validationCustom04">Titulo</label>
+                            <input type="text" class="form-control" placeholder="title">
+                          </div>
+                          <div class="col">
+                            <label for="validationCustom04">Año</label>
+                            <input type="text" class="form-control" placeholder="year">
+                          </div>
+                          <div class="col">
+                            <label for="validationCustom04">Tipo</label>
+                            <select class="custom-select" id="validationCustom04" required>
+                              <option selected disabled value="">movie</option>
+                              <option selected disabled value="">serie</option>
+                            </select>
+                          </div>
+                          <div class="col"> 
+                            <button class="btn btn-primary">Buscar</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h5>Peliculas 2020</h5>
+    <hr>
+</div>
+<div class="row">
+    <div class="col-4" ng-repeat="movie in movies">
+        <div class="card" ng-click="" >
+            <div style="height: 270px;  width: auto; text-align: center;">
+                <img width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
+            </div>
+            <!-- <div class="card-body"> -->
+            <h5 class="card-title" style="text-align: center;">{{movie.Title}}</h5>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <!-- <a href="#" class="btn btn-primary">more</a> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+<div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+
+
+<!-- <div class="pin-layout">
+    <div ng-repeat="movie in movies">
+        <div class="pin">
+            <h3 class="caption">{{movie.Title}}</h3>
+            <img width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
+            <p></p>
+        </div>
+    </div>
+</div> -->
