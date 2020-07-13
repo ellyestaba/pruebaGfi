@@ -53,3 +53,8 @@
 .pagination{
   justify-content: center;
 }
+
+img {
+  height: auto;
+  max-width: 100%;
+  }
