@@ -4,7 +4,7 @@
 angular.module('myApp.services', []).
   value('version', '0.1')
   .constant('API_KEY', 'f12ba140')
-
+  
   .factory('rtmFactory', ['$http', 'API_KEY', function ($http, API_KEY) {
     return {
       
