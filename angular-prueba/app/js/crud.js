@@ -11,7 +11,7 @@ angular.module('myApp.inicioSesion', [])
         service.Login = function (username, password, callback) {
 
             $timeout(function(){
-                var response = { success: username === 'test' && password === 'test' };
+                var response = { success: username === 'pruebaGfi' && password === 'abc123' };
                 if(!response.success) {
                     response.message = 'Username or password is incorrect';
                 }
@@ -49,7 +49,6 @@ angular.module('myApp.inicioSesion', [])
     }])
  
 .factory('Base64', function () {
-    /* jshint ignore:start */
  
     var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
  
@@ -131,5 +130,4 @@ angular.module('myApp.inicioSesion', [])
         }
     };
  
-    /* jshint ignore:end */
 });

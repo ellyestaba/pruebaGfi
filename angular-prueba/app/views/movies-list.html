@@ -1,50 +1,46 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                <h3 class="modal-title">Buscar por:</h3>
-                <div class="col">
-                    <form>
-                        <div class="form-row">
-                          <div class="col-9">
-                            <input type="text" class="form-control" ng-model="title" placeholder="Titulo">
-                          </div>
-                          <div class="col-2"> 
-                            <button class="btn btn-primary" ng-click="buscarPor(title)" data-toggle="modal" data-target="#movieModal" >Buscar</button>
-                          </div>
-                        </div>
-                      </form>
-                </div>
-                </div>
-            </div>
+  <div class="row">
+    <h3 class="modal-title">Buscar por:</h3>
+    <div class="col">
+      <form>
+        <div class="form-row">
+          <div class="col-9">
+            <input type="text" class="form-control" ng-model="title" placeholder="Titulo">
+          </div>
+          <div class="col-2">
+            <button class="btn btn-primary" ng-click="buscarPor(title)" data-toggle="modal"
+              data-target="#movieModal">Buscar</button>
+          </div>
         </div>
+      </form>
     </div>
-
-<div class="row">
-    <h3>Ultimas Estrenos</h3>
+  </div>
+  <br>
+  <div class="row">
+    <h3><i class="glyphicon glyphicon-folder-open"> </i>  Ultimos Estrenos</h3>
     <hr>
-</div>
-<div class="row">
+  </div>
+  <div class="row">
     <div class="col-4" ng-repeat="movie in movies">
-        <div class="card" ng-click="moviesDetail(movie.imdbID)" data-toggle="modal" data-target="#movieModal">
-            <div style="height: 270px;  width: auto; text-align: center;">
-                <img width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
-            </div>
-            <h5 class="card-title" style="text-align: center;">{{movie.Title}}</h5>
+      <div class="card" ng-click="moviesDetail(movie.imdbID)" data-toggle="modal" data-target="#movieModal">
+        <div class="imgStyle">
+          <img ng-if="movie.Poster !=='N/A'" width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
+          <span class="notFound" ng-show="movie.Poster ==='N/A'">Imagen Not Found</span>
         </div>
+        <h5 class="card-title title">{{movie.Title}}</h5>
+      </div>
     </div>
-</div>
-<div>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item" ><a class="page-link" >Previous</a></li>
-      <li class="page-item" ng-repeat="p in pages" >
-        <a class="page-link" ng-click="loadMovies(p)">{{p}}</a></li>
-      <li class="page-item"><a class="page-link" >Next</a></li>
-    </ul>
-  </nav>
-</div>
+  </div>
+  <div>
+    <nav aria-label="Page navigation example" style="text-align: center;">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link">Previous</a></li>
+        <li class="page-item" ng-repeat="p in pages">
+          <a class="page-link" ng-click="loadMovies(p)">{{p}}</a></li>
+        <li class="page-item"><a class="page-link">Next</a></li>
+      </ul>
+    </nav>
+  </div>
 </div>
 
 <!-- Modal -->
@@ -63,30 +59,31 @@
         </div>
         <div class="row" ng-if="details.Response == 'True'">
           <div class="col-3">
-            <img width="180" ng-src="{{details.Poster}}" alt="movie.Title">
+            <img ng-if="details.Poster !=='N/A'" width="180" ng-src="{{details.Poster}}" alt="details.Poster">
+            <span class="notFound" ng-show="details.Poster ==='N/A'">Imagen Not Found</span>
             <p> <strong>Rating:</strong> {{details.imdbRating}}</p>
             <p><strong>Duracion:</strong> {{details.Runtime}}</p>
-             <p><strong>Pais:</strong> {{details.Country}}</p>
+            <p><strong>Pais:</strong> {{details.Country}}</p>
           </div>
           <div class="col-9">
-           <h3><strong>Título:</strong> {{details.Title}}</h3>
-           <p><span><strong>Año:</strong> {{details.Year}}</span>
-              <span><strong>Tipo:</strong> {{details.Type}}</span> 
+            <h3><strong>Título:</strong> {{details.Title}}</h3>
+            <p><span><strong>Año:</strong> {{details.Year}}</span>
+              <span><strong>Tipo:</strong> {{details.Type}}</span>
               <span><strong>Idioma:</strong> {{details.Language}}</span>
               <span><strong>Genero:</strong> {{details.Genre}}</span>
-           </p>
-           <p><strong>Descripción:</strong> {{details.Plot}}</p>
-           <p><strong>Director:</strong> {{details.Director}}</p>
-           <p><strong>Guionista:</strong> {{details.Writer}}</p>
-           <p><strong>Reparto:</strong> {{details.Actors}}</p>
-           <p><strong>Productora:</strong> {{details.Production}}</p>
+            </p>
+            <p><strong>Descripción:</strong> {{details.Plot}}</p>
+            <p><strong>Director:</strong> {{details.Director}}</p>
+            <p><strong>Guionista:</strong> {{details.Writer}}</p>
+            <p><strong>Reparto:</strong> {{details.Actors}}</p>
+            <p><strong>Productora:</strong> {{details.Production}}</p>
           </div>
         </div>
       </div>
       <div class="modal-footer" ng-if="details.Response == 'True'">
-        <button type="button" class="btn btn-primary" ng-click="fav(details)"><i class="far fa-heart"></i> Añadir a favoritos</button>
+        <button type="button" class="btn btn-primary" ng-click="fav(details)"><i class="glyphicon glyphicon-heart"></i>
+          Añadir a favoritos</button>
       </div>
     </div>
   </div>
 </div>
-

@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <h3>Mi Lista</h3>
+    <h3> <i class="glyphicon glyphicon-list"> </i>  Mi Lista </h3>
   </div>
   <div class="row">
     <div class="col-4" ng-repeat="movie in favMovies">
       <div class="card" ng-click="moviesDetail(movie.imdbID)" data-toggle="modal" data-target="#movieModal">
-        <div style="height: 270px;  width: auto; text-align: center;">
-          <img width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
+        <div class="imgStyle">
+          <img ng-if="movie.Poster !=='N/A'" width="180" ng-src="{{movie.Poster}}" alt="movie.Title">
+          <span class="notFound" ng-show="movie.Poster ==='N/A'">Imagen Not Found</span>
         </div>
         <h5 class="card-title" style="text-align: center;">{{movie.Title}}</h5>
       </div>
@@ -27,7 +28,8 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-3">
-            <img width="180" ng-src="{{details.Poster}}" alt="movie.Title">
+            <img ng-if="details.Poster !=='N/A'" width="180" ng-src="{{details.Poster}}" alt="details.Poster">
+            <span class="notFound" ng-show="details.Poster ==='N/A'"> Imagen Not Found</span>
             <p> <strong>Rating:</strong> {{details.imdbRating}}</p>
             <p><strong>Duracion:</strong> {{details.Runtime}}</p>
             <p><strong>Pais:</strong> {{details.Country}}</p>
@@ -47,9 +49,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="fav(details)"><i class="far fa-heart"></i> Añadir a favoritos</button>
-      </div> -->
     </div>
   </div>
 </div>

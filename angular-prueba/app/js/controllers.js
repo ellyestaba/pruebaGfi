@@ -8,12 +8,10 @@ angular.module('myApp.controllers', [])
 
         rtmFactory.getMovies(page).then(
           function (response) {
-            // console.log(response);
             var moviesArray = response.Search;
-            // console.log(moviesArray)
             $scope.movies = moviesArray;
+
             var total = Math.ceil(parseInt(response.totalResults) / 10);
-            
             $scope.pages = []
             for (let i = 1; i < total; i++) {
               $scope.pages.push(i);
@@ -62,6 +60,7 @@ angular.module('myApp.controllers', [])
           if (arrayFav.find(m => m.Title === movie.Title) === undefined) {
             arrayFav.push(movie);
             $localStorage.fav = arrayFav;
+            alert("Esta pelicula se ha añadido a tus Favoritos")
           } else {
             alert("Esta pelicula ya esta en tu lista de Favoritos")
           }
