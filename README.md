@@ -1,6 +1,7 @@
 # pruebaGfi
 Clonar el proyecto.
- Desde la consola entrar en la carpeta del proyecto
+ Desde la consola entrar en la carpeta del proyecto.
+ 
       npm install 
       npm start 
 
